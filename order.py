@@ -4,7 +4,7 @@ from coffee import Coffee
 
 class Order:
 
-    all = []
+    _all = []
 
     def __init__(self, customer, coffee, price):
         if not isinstance(customer, Customer):
@@ -16,7 +16,7 @@ class Order:
         if not isinstance(price, float) or not (1.0 <= price <= 10.0):
             raise ValueError("Must be a float between 1.0 and 10.0")
         self._price = price
-        Order.all.append(self)
+        Order._all.append(self)
 
     @property
     def customer(self):
@@ -32,4 +32,4 @@ class Order:
 
     @classmethod
     def all(cls):
-        return cls.all
+        return cls._all
