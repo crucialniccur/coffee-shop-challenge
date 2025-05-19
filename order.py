@@ -9,12 +9,13 @@ class Order:
     def __init__(self, customer, coffee, price):
         if not isinstance(customer, Customer):
             raise TypeError('must be a Customer instance!')
-        self._customer = customer
         if not isinstance(coffee, Coffee):
             raise TypeError('must be a Coffee instance!')
-        self._coffee = coffee
         if not isinstance(price, float) or not (1.0 <= price <= 10.0):
             raise ValueError("Must be a float between 1.0 and 10.0")
+
+        self._coffee = coffee
+        self._customer = customer
         self._price = price
         Order._all.append(self)
 
