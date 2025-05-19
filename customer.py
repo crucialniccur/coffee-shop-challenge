@@ -13,3 +13,6 @@ class Customer:
     def name(self, value):
         # add validation with isinstance later
         self._name = value
+
+    def orders(self):
+        return [order for order in Order.all() if order.customer == self]
