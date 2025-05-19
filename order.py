@@ -16,6 +16,7 @@ class Order:
         if not isinstance(price, float) or not (1.0 <= price <= 10.0):
             raise ValueError("Must be a float between 1.0 and 10.0")
         self._price = price
+        Order.all.append(self)
 
     @property
     def customer(self):
