@@ -3,6 +3,9 @@ from coffee import Coffee
 
 
 class Order:
+
+    all = []
+
     def __init__(self, customer, coffee, price):
         if not isinstance(customer, Customer):
             raise TypeError('must be a Customer instance!')
