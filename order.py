@@ -29,3 +29,7 @@ class Order:
     @property
     def price(self):
         return self._price
+
+    @classmethod
+    def all(cls):
+        return cls.all
