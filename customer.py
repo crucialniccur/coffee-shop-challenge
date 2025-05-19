@@ -11,7 +11,10 @@ class Customer:
 
     @name.setter
     def name(self, value):
-        # add validation with isinstance later
+        if not isinstance(value, str):
+            raise TypeError("Name must be a string")
+        if not (1 <= len(value) <= 15):
+            raise ValueError("Name must be 1-15 characters long")
         self._name = value
 
     def orders(self):
