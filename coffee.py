@@ -5,3 +5,7 @@ class Coffee:
         else:
             raise ValueError(
                 'name should be a string and greater than or equal to 3 chars ')
+
+    @property
+    def name(self):
+        return self._name
