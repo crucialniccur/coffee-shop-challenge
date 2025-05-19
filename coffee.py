@@ -3,15 +3,19 @@ from order import Order
 
 class Coffee:
     def __init__(self, name):
-        if isinstance(name, str) and len(name) >= 3:
-            self._name = name
-        else:
+
+        if not isinstance(name, str) or len(name) < 3:
             raise ValueError(
-                'name should be a string and greater than or equal to 3 chars ')
+                "name should be a string and greater than or equal to 3 chars")
+        self._name = name
 
     @property
     def name(self):
         return self._name
+
+    @name.setter
+    def name(self, value):
+        raise AttributeError('coffee name cannot be changed')
 
     def orders(self):
         return [order for order in Order.all() if order.coffee == self]
