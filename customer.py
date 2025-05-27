@@ -26,3 +26,16 @@ class Customer:
     def create_order(self, coffee, price):
         from order import Order
         return Order(self, coffee, price)
+
+    @classmethod
+    def most_aficionado(cls, coffee):
+        from order import Order
+        customers = [customer for customer in set(
+            order.customer for order in Order.all() if order.coffee == coffee)]
+        if not customers:
+            return None
+        return max(
+            customers,
+            key=lambda c: sum(order.price for order in Order.all(
+            ) if order.customer == c and order.coffee == coffee)
+        )
