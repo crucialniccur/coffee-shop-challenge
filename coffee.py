@@ -19,6 +19,7 @@ class Coffee:
         return [order for order in Order.all() if order.coffee == self]
 
     def customers(self):
+        from order import Order
         return list({order.customer for order in self.orders()})
 
     def num_orders(self):
